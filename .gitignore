@@ -1,6 +1,6 @@
 build/*
 node_modules/*
-
+k8s/travis-ci.credentials.json
 
 # testing
 **/coverage*
