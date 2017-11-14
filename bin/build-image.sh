@@ -1,5 +1,6 @@
 #!/bin/bash
 cd "$(dirname "$0")"/..
+rm -dfr build
 mkdir -p build
 
 yarn install
@@ -48,7 +49,7 @@ EOF
 
 cat <<EOF > build/Dockerfile-ui
 FROM nginx:1.13.6
-COPY server/ui/tourney/build /usr/share/nginx/html
+COPY build /usr/share/nginx/html
 # COPY build/tourney.aback.es.conf /etc/nginx/conf.d/tourney.aback.es.conf
 COPY build/localhost.conf /etc/nginx/conf.d/localhost.conf
 EOF
