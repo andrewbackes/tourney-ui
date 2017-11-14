@@ -8,5 +8,5 @@ before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.2.1
 
 script:
-  - yarn install
-  - yarn build
+  - $HOME/.yarn/bin/yarn install
+  - $HOME/.yarn/bin/yarn build
