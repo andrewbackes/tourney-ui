@@ -13,22 +13,30 @@ import BlackQueen from 'images/pieces/piece05.png';
 import BlackKing from 'images/pieces/piece06.png';
 
 export default class Board extends Component {
+  componentDidMount() {
+    this.width = this.myInput.offsetWidth; 
+  }
+
   render() {
     let squares = [];
     const allowedLetters = ['r', 'n', 'b', 'k', 'q', 'p'];
+    const squareWidth = Math.floor(this.width / 8);
+    const imgWidth = 0.6 * squareWidth;
+    const imgMargin = 0.2 * squareWidth;
+    const pieceStyle = {"width": imgWidth + "px", "height": imgWidth + "px", "marginLeft": imgMargin + "px", "marginTop": imgMargin + "px" };
     const images = {
-      'R': <img alt="R" src={WhiteRook} style={{ "width": "30px", "height": "30px", "marginLeft": "10px", "marginTop": "10px" }}/>,
-      'N': <img alt="R" src={WhiteKnight} style={{ "width": "30px", "height": "30px", "marginLeft": "10px", "marginTop": "10px" }}/>,
-      'B': <img alt="R" src={WhiteBishop} style={{ "width": "30px", "height": "30px", "marginLeft": "10px", "marginTop": "10px" }}/>,
-      'Q': <img alt="R" src={WhiteQueen} style={{ "width": "30px", "height": "30px", "marginLeft": "10px", "marginTop": "10px" }}/>,
-      'K': <img alt="R" src={WhiteKing} style={{ "width": "30px", "height": "30px", "marginLeft": "10px", "marginTop": "10px" }}/>,
-      'P': <img alt="R" src={WhitePawn} style={{ "width": "30px", "height": "30px", "marginLeft": "10px", "marginTop": "10px" }}/>,
-      'r': <img alt="R" src={BlackRook} style={{ "width": "30px", "height": "30px", "marginLeft": "10px", "marginTop": "10px" }}/>,
-      'n': <img alt="R" src={BlackKnight} style={{ "width": "30px", "height": "30px", "marginLeft": "10px", "marginTop": "10px" }}/>,
-      'b': <img alt="R" src={BlackBishop} style={{ "width": "30px", "height": "30px", "marginLeft": "10px", "marginTop": "10px" }}/>,
-      'q': <img alt="R" src={BlackQueen} style={{ "width": "30px", "height": "30px", "marginLeft": "10px", "marginTop": "10px" }}/>,
-      'k': <img alt="R" src={BlackKing} style={{ "width": "30px", "height": "30px", "marginLeft": "10px", "marginTop": "10px" }}/>,
-      'p': <img alt="R" src={BlackPawn} style={{ "width": "30px", "height": "30px", "marginLeft": "10px", "marginTop": "10px" }}/>
+      'R': <img alt="R" src={WhiteRook} style={pieceStyle}/>,
+      'N': <img alt="R" src={WhiteKnight} style={pieceStyle}/>,
+      'B': <img alt="R" src={WhiteBishop} style={pieceStyle}/>,
+      'Q': <img alt="R" src={WhiteQueen} style={pieceStyle}/>,
+      'K': <img alt="R" src={WhiteKing} style={pieceStyle}/>,
+      'P': <img alt="R" src={WhitePawn} style={pieceStyle}/>,
+      'r': <img alt="R" src={BlackRook} style={pieceStyle}/>,
+      'n': <img alt="R" src={BlackKnight} style={pieceStyle}/>,
+      'b': <img alt="R" src={BlackBishop} style={pieceStyle}/>,
+      'q': <img alt="R" src={BlackQueen} style={pieceStyle}/>,
+      'k': <img alt="R" src={BlackKing} style={pieceStyle}/>,
+      'p': <img alt="R" src={BlackPawn} style={pieceStyle}/>
     };
     for (let i = 0; i < this.props.position.fen.length && this.props.position.fen[i] !== ' '; i++) {
       if (allowedLetters.includes(this.props.position.fen[i].toLowerCase())) {
@@ -58,11 +66,11 @@ export default class Board extends Component {
           <div id={index} key={i.toString() + j.toString()} style={{ 
             "border": border,
             "display": "inline-block",
-            "width": "50px",
-            "height": "50px",
+            "width": squareWidth + "px",
+            "height": squareWidth + "px",
             "position": "absolute",
-            "top": i * 50 + "px",
-            "left": j * 50 + "px",
+            "top": i * squareWidth + "px",
+            "left": j * squareWidth + "px",
             "backgroundColor": colors[color]
           }}>
             {images[squares[index]]}
@@ -73,8 +81,10 @@ export default class Board extends Component {
       color = (color + 1) % 2;
     }
     return (
-      <div id="board" style={{ 'position':'relative', 'width': '400px', 'height': '400px'}}>
-        { squareDivs }
+      <div style={{ 'width': '100%' }} ref={input => {this.myInput = input}}>
+        <div id="board" style={{ 'position': 'relative', 'width': this.width, 'height': this.width }}>
+          { squareDivs }
+        </div>
       </div>
     );
   }

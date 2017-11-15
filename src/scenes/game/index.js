@@ -81,10 +81,10 @@ export default class GameDashboard extends Component {
     return (
       <div>
         <div className="row">
-          <div className="col-sm-8 col-xs-12">
+          <div className="col-sm-7 col-xs-12">
             <Panel title="Board" mode={ mode } content={<Board position={this.state.position}/>}/>
           </div>
-          <div className="col-sm-4 col-xs-12">
+          <div className="col-sm-5 col-xs-12">
             <Panel title="Moves" mode="default" content={ <MoveTable game={this.state.game} setPosition={this.setPosition} currentPosition={this.state.position} /> }/>
           </div>
         </div>
