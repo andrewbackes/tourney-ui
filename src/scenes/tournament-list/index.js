@@ -61,10 +61,10 @@ export default class TournamentsDashboard extends Component {
     return (
       <div>
         <div className="row">
-          <div className="col-xs-8">
+          <div className="col-xs-12 col-sm-8">
             <Panel title="Running" mode="success" content={<RunningTournamentsTable list={this.state.running} history={this.props.history}/>}/>
           </div>
-          <div className="col-xs-4">
+          <div className="col-xs-12 col-sm-4">
             <Panel title="Pending" mode="info" content={<PendingTournamentsTable list={this.state.pending} history={this.props.history}/>}/>
           </div>
         </div>

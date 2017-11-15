@@ -74,7 +74,7 @@ export default class TournamentDashboard extends Component {
           </div>
         )}
         <div className="row">
-          <div className="col-xs-6">
+          <div className="col-xs-12 col-sm-6">
             <Panel title="Standings" mode="default" content={
               <StandingsTable 
                 contestants={this.state.tournament.settings ? this.state.tournament.settings.contestants : []}
@@ -82,19 +82,19 @@ export default class TournamentDashboard extends Component {
               />}
             />
           </div>
-          <div className="col-xs-6">
+          <div className="col-xs-12 col-sm-6">
             <Panel title="Matchups" mode="default" content={<MathupsTable stats={this.state.tournament.summary ? this.state.tournament.summary.stats : null}/>}/>
           </div>
         </div>
         { this.state.tournament && this.state.tournament.settings &&
         <div className="row">
-          <div className="col-xs-4">
+          <div className="col-xs-12 col-sm-4">
             <Panel title="Time Control" mode="default" content={<TimeControlTable timeControl={this.state.tournament.settings.timeControl}/>}/>
           </div>
-          <div className="col-xs-4">
+          <div className="col-xs-12 col-sm-4">
             <Panel title="Opening Book" mode="default" content={<OpeningBookTable opening={this.state.tournament.settings.opening}/>}/>
           </div>
-          <div className="col-xs-4">
+          <div className="col-xs-12 col-sm-4">
             <Panel title="Workers" mode="success" content={<WorkersTable workers={this.state.workers}/>}/>
           </div>
         </div>
