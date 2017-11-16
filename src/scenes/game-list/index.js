@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Panel from 'components/panel';
 import TournamentService from 'services/tournament';
 
 import Search from 'scenes/game-list/search';
@@ -54,20 +53,22 @@ export default class GameList extends Component {
   }
 
   refreshState() {
-    TournamentService.getTournament(this.props.match.params.tournamentId, this.setTournament)
-    TournamentService.getGameList(this.props.match.params.tournamentId, this.setGameList)
+    TournamentService.getTournament(this.props.tournamentId, this.setTournament)
+    TournamentService.getGameList(this.props.tournamentId, this.setGameList)
   }
   
   render() {
     return (
-      <div>
-        <Panel title="Search" mode="default" content={
-          <Search onFilterTextInput={this.handleFilterTextInput} filterText={this.state.filterText}/>
-        }/>
-        <div className="panel panel-default">
-          <div className="panel-body">
-            <GameTable gameList={this.state.gameList} filterText={this.state.filterText} history={this.props.history}/>
+      <div className="row">
+        <div className="col-xs-12">
+          <div className="panel panel-default">
+            <div className="panel-body">
+              <Search onFilterTextInput={this.handleFilterTextInput} filterText={this.state.filterText}/>
+            </div>
           </div>
+        </div>
+        <div className="col-xs-12">
+          <GameTable gameList={this.state.gameList} filterText={this.state.filterText} history={this.props.history}/>
         </div>
       </div>
     );

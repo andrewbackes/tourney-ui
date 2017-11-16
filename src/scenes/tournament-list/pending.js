@@ -26,7 +26,7 @@ export default class PendingTournamentsTable extends Component {
 
 class PendingTournamentsTableRow extends Component {
   handleClick(e) {
-    this.props.history.push('/tournaments/' + this.props.tournament.id);
+    this.props.history.push('/tournaments/' + this.props.tournament.id + '/summary');
   }
 
   render() {

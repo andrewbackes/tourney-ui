@@ -28,7 +28,7 @@ export default class RunningTournamentsTable extends Component {
   
 class RunningTournamentsTableRow extends Component {
   handleClick(e) {
-    this.props.history.push('/tournaments/' + this.props.tournament.id);
+    this.props.history.push('/tournaments/' + this.props.tournament.id + '/summary');
   }
 
   render() {

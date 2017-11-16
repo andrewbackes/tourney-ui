@@ -14,6 +14,7 @@ export default class GameTable extends Component {
             <th>White</th>
             <th>Black</th>
             <th>Result</th>
+            <th>Ending</th>
             <th>Winner</th>
             <th>Status</th>
           </tr>
@@ -41,7 +42,8 @@ class GameTableRow extends Component {
         <td>{this.props.game.round}</td>
         <td>{engineLabel(this.props.game.contestants["0"])}</td> 
         <td>{engineLabel(this.props.game.contestants["1"])}</td> 
-        <td>-</td>
+        <td>{this.props.game.result}</td>
+        <td>{this.props.endingCondition}</td>
         <td>-</td>
         <td>{this.props.game.status}</td>
       </tr>

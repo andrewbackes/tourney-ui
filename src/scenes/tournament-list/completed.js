@@ -27,7 +27,7 @@ export default class CompletedTournamentsTable extends Component {
 
 class CompletedTournamentsTableRow extends Component {
   handleClick(e) {
-    this.props.history.push('/tournaments/' + this.props.tournament.id);
+    this.props.history.push('/tournaments/' + this.props.tournament.id + '/summary');
   }
 
   render() {
