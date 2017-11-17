@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import GameTable from 'scenes/game-list/game-table';
-import Search from 'scenes/game-list/search';
+import GameTable from 'scenes/tournament/games/game-table';
+import Search from 'scenes/tournament/games/search';
 
-export default class GameList extends Component {
+export default class Game extends Component {
   render() {
     let filterText = decodeURIComponent(this.props.location.search.substring('?q='.length, this.props.location.search.length));
     return (

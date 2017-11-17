@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Panel from 'components/panel';
 
-import OpeningBookTable from 'scenes/tournament-summary/opening';
-import StandingsTable from 'scenes/tournament-summary/standings';
-import MathupsTable from 'scenes/tournament-summary/matchups';
-import TimeControlTable from 'scenes/tournament-summary/time-control';
+import OpeningBookTable from 'scenes/tournament/summary/opening';
+import StandingsTable from 'scenes/tournament/summary/standings';
+import MathupsTable from 'scenes/tournament/summary/matchups';
+import TimeControlTable from 'scenes/tournament/summary/time-control';
 
-export default class TournamentDashboard extends Component {
+export default class Summary extends Component {
   render() {
     return (
       <div className="row">

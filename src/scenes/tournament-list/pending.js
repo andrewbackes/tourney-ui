@@ -5,7 +5,8 @@ import TimeControl from 'util/time-control';
 export default class PendingTournamentsTable extends Component {
   render() {
     var rows = [];
-    this.props.list.forEach( (tournament) => {
+    
+    this.props.list.sort((a,b) => { return a.creationDate.localeCompare(b.creationDate); }).forEach( (tournament) => {
       rows.push(<PendingTournamentsTableRow key={tournament.id} tournament={tournament} history={this.props.history}></PendingTournamentsTableRow>);
     });
     return (

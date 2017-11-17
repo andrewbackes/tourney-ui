@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import Tabs from 'scenes/tournament/tabs';
-import TournamentDashboard from 'scenes/tournament-summary';
-import GameList from 'scenes/game-list';
+import Summary from 'scenes/tournament/summary';
+import Games from 'scenes/tournament/games';
 
 import TournamentService from 'services/tournament';
 
@@ -52,10 +52,10 @@ export default class Tournament extends Component {
   }
 
   render() {
-    let section = <TournamentDashboard tournament={this.state.tournament} history={this.props.history}/>;
+    let section = <Summary tournament={this.state.tournament} history={this.props.history}/>;
     switch(this.props.match.params.tab) {
       case 'games':
-        section = <GameList gameList={this.state.gameList} history={this.props.history} location={this.props.location}/>;
+        section = <Games gameList={this.state.gameList} history={this.props.history} location={this.props.location}/>;
         break;
       default:
         break;
