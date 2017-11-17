@@ -21,7 +21,7 @@ export default class TimeControlTable extends Component {
           </tr>
           <tr>
             <th>Repeating</th>
-            <td>{ this.props.timeControl.repeating }</td>
+            <td>{ this.props.timeControl.repeating ? 'True' : 'False' }</td>
           </tr>
         </tbody>
       </table>

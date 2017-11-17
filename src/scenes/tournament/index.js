@@ -46,7 +46,7 @@ export default class Tournament extends Component {
     let section = <TournamentDashboard tournament={this.state.tournament} history={this.props.history}/>;
     switch(this.props.match.params.tab) {
       case 'games':
-        section = <GameList tournamentId={this.props.match.params.tournamentId} history={this.props.history}/>;
+        section = <GameList tournamentId={this.props.match.params.tournamentId} history={this.props.history} location={this.props.location}/>;
         break;
       default:
         break;

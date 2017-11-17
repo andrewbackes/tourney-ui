@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import Panel from 'components/panel';
 import TournamentService from 'services/tournament';
 
@@ -89,7 +88,7 @@ export default class GameDashboard extends Component {
     return (
       <div>
         <div className="row">
-          <h2><Link to={'/tournaments/' + this.state.game.tournamentId + '/games'}>{this.state.tournament.name ? this.state.tournament.name : this.state.game.tournamentId}</Link> <small>Round {this.state.game.round}</small></h2>
+          <h2><a href='#back' onClick={ this.props.history.goBack }>{this.state.tournament.name ? this.state.tournament.name : this.state.game.tournamentId}</a> <small>Round {this.state.game.round}</small></h2>
         </div>
         <div className="row">
           <div className="col-sm-7 col-xs-12">

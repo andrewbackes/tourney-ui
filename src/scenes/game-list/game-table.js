@@ -6,7 +6,7 @@ export default class GameTable extends Component {
     if (filterText === "") {
       return true;
     }
-    return JSON.stringify(game).toLowerCase().includes(filterText);
+    return JSON.stringify(game).toLowerCase().includes(filterText.toLowerCase());
   }
 
   render() {
