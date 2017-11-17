@@ -64,10 +64,7 @@ class GameTableRow extends Component {
         <td>{engineLabel(this.props.game.contestants["1"])}</td> 
         <td>{resultLabel(this.props.game.result)}</td>
         <td>{this.props.game.endingCondition}</td>
-        <td>{
-          0 < this.props.game.result && this.props.game.result < 2 ?
-          engineLabel(this.props.game.contestants[this.props.game.result - 1]) : '-'
-        }</td>
+        <td>{this.props.game.result === 1 ? engineLabel(this.props.game.contestants["0"]) : (this.props.game.result === 2 ? engineLabel(this.props.game.contestants["1"]) : '-')}</td>
         <td>{this.props.game.status}</td>
       </tr>
     );
