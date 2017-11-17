@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import GameTable from 'scenes/game-list/game-table';
-import Search from 'scenes/game-list/Search';
+import Search from 'scenes/game-list/search';
 
 export default class GameList extends Component {
   render() {
