@@ -12,7 +12,11 @@ export default class MoveTable extends Component {
           if (node.children.length > 24) {
             if (node.lastElementChild.classList && node.lastElementChild.classList.contains('active')) {
               if (node.lastElementChild.lastElementChild) {
-                node.lastElementChild.firstElementChild.scrollIntoView({ behavior: "smooth" });
+                //node.lastElementChild.firstElementChild.scrollIntoView({ behavior: "smooth" });
+                //let rowpos = $(node.lastElementChild.firstElementChild).position();
+                //console.log($(node.lastElementChild.clientTop));
+                //console.log($(node.lastElementChild).position().top);
+                //$('#moveListBody').scrollTop(rowpos.top);
               }
             }
           }
@@ -37,15 +41,15 @@ export default class MoveTable extends Component {
         }
         return (
           <div>
-            <table className="table table-hover table-condensed table-fixed">
-              <thead>
+            <table className="table table-hover table-condensed table-fixed" id="moveList">
+              <thead id="moveListHead">
                 <tr>
                   <th className="col-xs-4">Number</th>
                   <th className="col-xs-4">Move</th>
                   <th className="col-xs-4">Duration</th>
                 </tr>
               </thead>
-              <tbody style={{ 'height' : '348px' }} ref={(el) => { this.tbody = el; }}>
+              <tbody style={{ 'height' : '348px' }} ref={(el) => { this.tbody = el; }} id="moveListBody">
                 { rows }
               </tbody>
             </table>

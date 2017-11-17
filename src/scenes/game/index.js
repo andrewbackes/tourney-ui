@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import Panel from 'components/panel';
 import TournamentService from 'services/tournament';
 
@@ -13,12 +14,15 @@ export default class GameDashboard extends Component {
       game: {},
       position: {
         fen: ""
-      }
+      },
+      tournament: {},
     };
     this.initGame = this.initGame.bind(this);
     this.setGame = this.setGame.bind(this);
+    this.setTournament = this.setTournament.bind(this);
     this.setPosition = this.setPosition.bind(this);
     TournamentService.getGame(this.props.match.params.tournamentId, this.props.match.params.gameId, this.initGame);
+    TournamentService.getTournament(this.props.match.params.tournamentId, this.setTournament)
   }
 
   componentDidMount() {
@@ -40,6 +44,10 @@ export default class GameDashboard extends Component {
     } else {
       this.setPosition(this.state.game.positions[this.state.game.positions.length-1]);
     }
+  }
+
+  setTournament(tournament) {
+    this.setState({ tournament: tournament })
   }
 
   setGame(game) {
@@ -80,6 +88,9 @@ export default class GameDashboard extends Component {
     }
     return (
       <div>
+        <div className="row">
+          <h2><Link to={'/tournaments/' + this.state.game.tournamentId + '/games'}>{this.state.tournament.name ? this.state.tournament.name : this.state.game.tournamentId}</Link> <small>Round {this.state.game.round}</small></h2>
+        </div>
         <div className="row">
           <div className="col-sm-7 col-xs-12">
             <Panel title="Board" mode={ mode } content={<Board position={this.state.position}/>}/>

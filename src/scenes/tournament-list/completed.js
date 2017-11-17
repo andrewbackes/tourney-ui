@@ -33,8 +33,8 @@ class CompletedTournamentsTableRow extends Component {
   render() {
     return (
       <tr className='clickable' onClick={this.handleClick.bind(this)}>
-        <td>{this.props.tournament.id}</td>
-        <td>{TimeControl.format(this.props.tournament.settings.timeControl)}</td>
+        <td>{ this.props.tournament.name ? this.props.tournament.name : this.props.tournament.id }</td>
+        <td>{ TimeControl.format(this.props.tournament.settings.timeControl) }</td>
         <td>-</td>
       </tr>
     )
