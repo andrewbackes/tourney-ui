@@ -22,7 +22,7 @@ export default class Tournament extends Component {
     if (this.state.tournament.status !== "Complete") {
       this.timerID = setInterval(
         () => this.refreshState(),
-        1000
+        10000
       );
     }
   }
