@@ -33,7 +33,6 @@ export default class StandingsTable extends Component {
       scores[key].label = key;
       scores[key].rate = (((scores[key].wins + (1/2 * scores[key].draws)) / (scores[key].wins + scores[key].draws + scores[key].losses)) * 100).toFixed(2);
     }
-    console.log(scores);
     return Object.values(scores).sort( (a,b) => { return b.rate - a.rate; } );
   }
 
