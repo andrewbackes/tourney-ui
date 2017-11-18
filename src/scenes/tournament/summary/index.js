@@ -12,11 +12,8 @@ export default class Summary extends Component {
       <div className="row">
         <div className="col-xs-12 col-sm-6">
           <Panel title="Standings" mode="default" content={
-            <StandingsTable 
-              contestants={this.props.tournament.settings ? this.props.tournament.settings.contestants : []}
-              stats={this.props.tournament.summary ? this.props.tournament.summary.stats : null}
-            />}
-          />
+            <StandingsTable gameList={this.props.gameList}/>
+          }/>
         </div>
         <div className="col-xs-12 col-sm-6">
           <Panel title="Matchups" mode="default" content={<MathupsTable stats={this.props.tournament.summary ? this.props.tournament.summary.stats : null}/>}/>

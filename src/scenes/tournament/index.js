@@ -52,7 +52,7 @@ export default class Tournament extends Component {
   }
 
   render() {
-    let section = <Summary tournament={this.state.tournament} history={this.props.history}/>;
+    let section = <Summary tournament={this.state.tournament} gameList={this.state.gameList} history={this.props.history}/>;
     switch(this.props.match.params.tab) {
       case 'games':
         section = <Games gameList={this.state.gameList} history={this.props.history} location={this.props.location}/>;
