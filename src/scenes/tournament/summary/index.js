@@ -9,26 +9,31 @@ import TimeControlTable from 'scenes/tournament/summary/time-control';
 export default class Summary extends Component {
   render() {
     return (
-      <div className="row">
-        <div className="col-xs-12 col-sm-6">
-          <Panel title="Standings" mode="default" content={
-            <StandingsTable gameList={this.props.gameList}/>
-          }/>
+      <div>
+        <div className="row">
+          { this.props.tournament && this.props.tournament.settings &&
+          <div className="col-xs-12 col-sm-5">
+            <Panel title="Time Control" mode="default" content={<TimeControlTable timeControl={this.props.tournament.settings.timeControl}/>}/>
+          </div>
+          }
+          { this.props.tournament && this.props.tournament.settings &&
+          <div className="col-xs-12 col-sm-7">
+            <Panel title="Opening Book" mode="default" content={<OpeningBookTable opening={this.props.tournament.settings.opening}/>}/>
+          </div>
+          }
         </div>
-        <div className="col-xs-12 col-sm-6">
-          <Panel title="Matchups" mode="default" content={<MathupsTable stats={this.props.tournament.summary ? this.props.tournament.summary.stats : null}/>}/>
+        <div className="row">
+          <div className="col-xs-12 col-sm-5">
+            <Panel title="Standings" mode="default" content={
+              <StandingsTable gameList={this.props.gameList}/>
+            }/>
+          </div>
+          <div className="col-xs-12 col-sm-7">
+            <Panel title="Matchups" mode="default" content={
+              <MathupsTable gameList={this.props.gameList}/>
+            }/>
+          </div>
         </div>
-        
-        { this.props.tournament && this.props.tournament.settings &&
-        <div className="col-xs-12 col-sm-6">
-          <Panel title="Time Control" mode="default" content={<TimeControlTable timeControl={this.props.tournament.settings.timeControl}/>}/>
-        </div>
-        }
-        { this.props.tournament && this.props.tournament.settings &&
-        <div className="col-xs-12 col-sm-6">
-          <Panel title="Opening Book" mode="default" content={<OpeningBookTable opening={this.props.tournament.settings.opening}/>}/>
-        </div>
-        }
       </div>
     );
   }
