@@ -31,7 +31,12 @@ export default class StandingsTable extends Component {
     }
     for (let key in scores) {
       scores[key].label = key;
-      scores[key].rate = (((scores[key].wins + (1/2 * scores[key].draws)) / (scores[key].wins + scores[key].draws + scores[key].losses)) * 100).toFixed(2);
+      let d = (scores[key].wins + scores[key].draws + scores[key].losses);
+      if (d !== 0) {
+        scores[key].rate = (((scores[key].wins + (1/2 * scores[key].draws)) / d) * 100).toFixed(2);
+      } else {
+        scores[key].rate = "-";
+      }
     }
     return Object.values(scores).sort( (a,b) => { return b.rate - a.rate; } );
   }
