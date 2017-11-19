@@ -51,27 +51,28 @@ export default class Board extends Component {
       }
     }
     let squareDivs = [];
-    const colors = ['white', 'gray'];
+    const colors = ["#efd9b7", "#b48866"];
+    const highlightColors = ["#CED171", "#AAA143"];
     let color = 0;
     let index = 0;
     for (let i=0; i <8; i++) {
       for (let j=0; j <8; j++) {
-        let border = '1px black solid';
+        let backgroundColor = colors[color];
         if (this.props.position && this.props.position.lastMove) {
           if ((63 - index) === this.props.position.lastMove.source || (63 - index) === this.props.position.lastMove.destination) {
-            border = '2px yellow solid';
+            backgroundColor = highlightColors[color];
           }
         }
         squareDivs.push(
           <div id={index} key={i.toString() + j.toString()} style={{ 
-            "border": border,
+            "border": '1px black solid',
             "display": "inline-block",
             "width": squareWidth + "px",
             "height": squareWidth + "px",
             "position": "absolute",
             "top": i * squareWidth + "px",
             "left": j * squareWidth + "px",
-            "backgroundColor": colors[color]
+            "backgroundColor": backgroundColor
           }}>
             {images[squares[index]]}
           </div>);
