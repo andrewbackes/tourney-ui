@@ -91,10 +91,10 @@ export default class GameDashboard extends Component {
           <h2><a href='#back' onClick={ this.props.history.goBack }>{this.state.tournament.name ? this.state.tournament.name : this.state.game.tournamentId}</a> <small>Round {this.state.game.round}</small></h2>
         </div>
         <div className="row">
-          <div className="col-sm-7 col-xs-12">
+          <div className="col-sm-6 col-xs-12">
             <Panel title="Board" mode={ mode } content={<Board position={this.state.position}/>}/>
           </div>
-          <div className="col-sm-5 col-xs-12">
+          <div className="col-sm-4 col-xs-12">
             <Panel title="Moves" mode="default" content={ <MoveTable game={this.state.game} setPosition={this.setPosition} currentPosition={this.state.position} /> }/>
           </div>
         </div>

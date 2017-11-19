@@ -12,11 +12,7 @@ export default class MoveTable extends Component {
       if (node.children.length > 24) {
         if (node.lastElementChild.classList && node.lastElementChild.classList.contains('active')) {
           if (node.lastElementChild.lastElementChild) {
-            //node.lastElementChild.firstElementChild.scrollIntoView({ behavior: "smooth" });
-            //let rowpos = $(node.lastElementChild.firstElementChild).position();
-            //console.log($(node.lastElementChild.clientTop));
-            //console.log($(node.lastElementChild).position().top);
-            //$('#moveListBody').scrollTop(rowpos.top);
+            node.scrollTop = node.children.length * 32;
           }
         }
       }
