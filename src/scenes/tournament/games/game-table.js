@@ -16,6 +16,7 @@ export default class GameTable extends Component {
         rows.push(<GameTableRow key={game.id} game={game} history={this.props.history}/>)
       }
     })
+    rows.push(<GameTableFooter key='footer' size={rows.length}/>);
     return (
       <table className="table table-hover table-condensed">
         <thead>
@@ -66,6 +67,23 @@ class GameTableRow extends Component {
         <td>{this.props.game.endingCondition}</td>
         <td>{this.props.game.result === 1 ? engineLabel(this.props.game.contestants["0"]) : (this.props.game.result === 2 ? engineLabel(this.props.game.contestants["1"]) : '-')}</td>
         <td>{this.props.game.status}</td>
+      </tr>
+    );
+  }
+}
+
+
+class GameTableFooter extends Component {
+  render() {
+    return (
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><strong>Total: { this.props.size }</strong></td>
       </tr>
     );
   }

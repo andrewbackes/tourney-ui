@@ -8,8 +8,22 @@ import TimeControlTable from 'scenes/tournament/summary/time-control';
 
 export default class Summary extends Component {
   render() {
+    const complete = this.props.gameList.filter( (game) => { return game.status === 'Complete'; } ).length;
+    const progress = 100 * complete / this.props.gameList.length;
     return (
       <div>
+        { this.props.tournament.status === 'Running' &&
+        <div className="row">
+          <div className="col-xs-12">
+            <div className="progress">
+              <div className="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+              aria-valuenow={progress} aria-valuemin="0" aria-valuemax="100" style={{ "width": progress + "%" }}>
+              {complete}/{this.props.gameList.length} Complete
+              </div>
+            </div>
+          </div>
+        </div>
+        }
         <div className="row">
           { this.props.tournament && this.props.tournament.settings &&
           <div className="col-xs-12 col-sm-5">
