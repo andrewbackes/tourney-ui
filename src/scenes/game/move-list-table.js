@@ -5,28 +5,26 @@ import Duration from 'util/duration';
 import Move from 'util/move';
 
 export default class MoveTable extends Component {
-    
-  scrollToBottom = () => {
+
+  scrollToActive() {
     const node = ReactDOM.findDOMNode(this.tbody);
-    if (node !== null && node.lastElementChild !== null) {
-      if (node.children.length > 24) {
-        if (node.lastElementChild.classList && node.lastElementChild.classList.contains('active')) {
-          if (node.lastElementChild.lastElementChild) {
-            node.scrollTop = node.children.length * 32;
-          }
-        }
-      }
+    const top = node.scrollTop;
+    const bottom = node.scrollTop + (10 * 31);
+    const current = this.props.index * 31;
+    if (current > bottom) {
+      node.scrollTop = (this.props.index - 10) * 31;
+    } else if (current < top) {
+      node.scrollTop = (this.props.index) * 31;
     }
   }
-  
+
   componentDidMount() {
-    this.scrollToBottom();
-  }
-  
-  componentDidUpdate() {
-    this.scrollToBottom();
+    this.scrollToActive();
   }
 
+  componentDidUpdate() {
+    this.scrollToActive();
+  }
 
   render() {
     let rows = [];
