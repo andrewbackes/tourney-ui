@@ -163,20 +163,24 @@ export default class GameDashboard extends Component {
             </div>
           </div>
         }
-        <div className="row">
-          <div className="col-sm-6 col-xs-12">
-            <Board position={this.state.position}/>
-          </div>
-          <div className="col-sm-4 col-xs-12" style={{ 'marginBottom': '30px' }}>
-            <div className="btn-group btn-group-justified">
-              <a href="#first" onClick={ this.gotoFirst } className="btn btn-default"><span className="glyphicon glyphicon-fast-backward"/></a>
-              <a href="#previous" onClick={ this.gotoPrevious } className="btn btn-default"><span className="glyphicon glyphicon-backward"/></a>
-              <a href="#next" onClick={ this.gotoNext } className="btn btn-default"><span className="glyphicon glyphicon-forward"/></a>
-              <a href="#last" onClick={ this.gotoLast } className="btn btn-default"><span className="glyphicon glyphicon-fast-forward"/></a>
+        <div className="panel panel-default">
+          <div className="panel-body">
+            <div className="row">
+              <div className="col-sm-6 col-xs-12">
+                <Board position={this.state.position}/>
+              </div>
+              <div className="col-sm-4 col-xs-12" style={{ 'marginBottom': '30px' }}>
+                <div className="btn-group btn-group-justified">
+                  <a href="#first" onClick={ this.gotoFirst } className="btn btn-default"><span className="glyphicon glyphicon-fast-backward"/></a>
+                  <a href="#previous" onClick={ this.gotoPrevious } className="btn btn-default"><span className="glyphicon glyphicon-backward"/></a>
+                  <a href="#next" onClick={ this.gotoNext } className="btn btn-default"><span className="glyphicon glyphicon-forward"/></a>
+                  <a href="#last" onClick={ this.gotoLast } className="btn btn-default"><span className="glyphicon glyphicon-fast-forward"/></a>
+                </div>
+              </div>
+              <div className="col-sm-4 col-xs-12">
+                <MoveTable game={this.state.game} setPosition={this.setPosition} index={ this.currentPositionIndex() } currentPosition={this.state.position} />
+              </div>
             </div>
-          </div>
-          <div className="col-sm-4 col-xs-12">
-            <MoveTable game={this.state.game} setPosition={this.setPosition} index={ this.currentPositionIndex() } currentPosition={this.state.position} />
           </div>
         </div>
         <div className="row">
