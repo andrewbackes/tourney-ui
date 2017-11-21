@@ -23,7 +23,7 @@ export default class EvaluationChart extends React.Component {
     let data = [[0,0,0]];
     for (let i = 1; i < this.props.positions.length; i+=2) {
       let w = this.evaluationOf(this.props.positions[i]);
-      let b = i+1 < this.props.positions ? this.evaluationOf(this.props.positions[i+1]) : 0;
+      let b = i+1 < this.props.positions.length ? this.evaluationOf(this.props.positions[i+1]) : 0;
       let m = Math.floor(i/2) +1;
       const r = [m, w, b];
       data.push(r);
