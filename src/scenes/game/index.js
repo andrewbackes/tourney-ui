@@ -170,6 +170,11 @@ export default class GameDashboard extends Component {
         <div className="panel panel-default">
           <div className="panel-body">
             <div className="row">
+              <div className="col-sm-12 col-xs-12">
+                <h4>{ this.state.game.contestants ? this.state.game.contestants[1].name + " " + this.state.game.contestants[1].version : "-"}</h4>
+              </div>
+            </div>
+            <div className="row">
               <div className="col-sm-6 col-xs-12">
                 <Board position={this.state.position}/>
               </div>
@@ -186,6 +191,11 @@ export default class GameDashboard extends Component {
               </div>
               <div className="col-sm-6 col-xs-12">
                 <PieceDiff position={this.state.position}/>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-sm-12 col-xs-12">
+                <h4>{ this.state.game.contestants ? this.state.game.contestants[0].name + " " + this.state.game.contestants[0].version : "-"}</h4>
               </div>
             </div>
           </div>
