@@ -16,4 +16,8 @@ export default class Duration {
     if (ms !== 0) { pretty += ms/1000 + "s"; }
     return  pretty !== "" ? pretty : "-";
   }
+
+  static seconds(duration) {
+    return duration / 1000000000;
+  }
 }

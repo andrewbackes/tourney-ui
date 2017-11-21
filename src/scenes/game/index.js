@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Panel from 'components/panel';
 import TournamentService from 'services/tournament';
 
+import EvaluationChart from 'scenes/game/EvaluationChart';
+import DurationChart from 'scenes/game/DurationChart';
+import DepthChart from 'scenes/game/DepthChart';
 import PieceDiff from 'scenes/game/PieceDiff';
 import MoveTable from 'scenes/game/move-list-table';
 import EngineAnalysisTable from 'scenes/game/engine-analysis-table';
@@ -170,7 +173,7 @@ export default class GameDashboard extends Component {
               <div className="col-sm-6 col-xs-12">
                 <Board position={this.state.position}/>
               </div>
-              <div className="col-sm-4 col-xs-12" style={{ 'marginBottom': '30px' }}>
+              <div className="col-sm-6 col-xs-12" style={{ 'marginBottom': '30px' }}>
                 <div className="btn-group btn-group-justified">
                   <a href="#first" onClick={ this.gotoFirst } className="btn btn-default"><span className="glyphicon glyphicon-fast-backward"/></a>
                   <a href="#previous" onClick={ this.gotoPrevious } className="btn btn-default"><span className="glyphicon glyphicon-backward"/></a>
@@ -178,10 +181,10 @@ export default class GameDashboard extends Component {
                   <a href="#last" onClick={ this.gotoLast } className="btn btn-default"><span className="glyphicon glyphicon-fast-forward"/></a>
                 </div>
               </div>
-              <div className="col-sm-4 col-xs-12">
+              <div className="col-sm-6 col-xs-12">
                 <MoveTable game={this.state.game} setPosition={this.setPosition} index={ this.currentPositionIndex() } currentPosition={this.state.position} />
               </div>
-              <div className="col-sm-4 col-xs-12">
+              <div className="col-sm-6 col-xs-12">
                 <PieceDiff position={this.state.position}/>
               </div>
             </div>
@@ -189,7 +192,13 @@ export default class GameDashboard extends Component {
         </div>
         <div className="row">
           <div className="col-xs-12">
-            <Panel title="Analysis" mode="default"/>
+            <Panel title="Analysis" mode="default" content={
+              <div>
+                <EvaluationChart positions={ this.state.game.positions }/>
+                <DepthChart positions={ this.state.game.positions }/>
+                <DurationChart positions={ this.state.game.positions }/>
+              </div>
+            }/>
           </div>
         </div>
         <div className="row">
