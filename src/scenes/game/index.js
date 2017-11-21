@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Panel from 'components/panel';
 import TournamentService from 'services/tournament';
 
+import PieceDiff from 'scenes/game/PieceDiff';
 import MoveTable from 'scenes/game/move-list-table';
 import EngineAnalysisTable from 'scenes/game/engine-analysis-table';
 import Board from 'scenes/game/chessboard';
@@ -13,7 +14,7 @@ export default class GameDashboard extends Component {
     this.state = {
       game: {
         positions: [],
-        status: 'pending',
+        status: '',
       },
       position: {
         fen: ""
@@ -179,6 +180,9 @@ export default class GameDashboard extends Component {
               </div>
               <div className="col-sm-4 col-xs-12">
                 <MoveTable game={this.state.game} setPosition={this.setPosition} index={ this.currentPositionIndex() } currentPosition={this.state.position} />
+              </div>
+              <div className="col-sm-4 col-xs-12">
+                <PieceDiff position={this.state.position}/>
               </div>
             </div>
           </div>
