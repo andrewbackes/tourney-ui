@@ -6,7 +6,8 @@ import Tournament from 'scenes/tournament';
 import GameDashboard from 'scenes/game';
 
 import WorkersDashboard from 'scenes/workers';
-import EnginesDashboard from 'scenes/engines';
+import EngineList from 'scenes/engine-list';
+import Engine from 'scenes/engine';
 import BooksDashboard from 'scenes/books';
 
 import SignupScreen from 'scenes/signup';
@@ -25,7 +26,8 @@ export default class Main extends Component {
           <Route exact path='/tournaments' component={TournamentsDashboard}/>
           <Route exact path='/workers' component={WorkersDashboard}/>
           <Route exact path='/books' component={BooksDashboard}/>
-          <Route exact path='/engines' component={EnginesDashboard}/>
+          <Route exact path='/engines/:engineName' component={Engine}/>
+          <Route exact path='/engines' component={EngineList}/>
           <Route exact path='/signup' component={SignupScreen}/>
           <Route exact path='/login' component={LoginScreen}/>
           <Route component={NotFoundScreen} />

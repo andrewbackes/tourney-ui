@@ -5,6 +5,19 @@ export default class TournamentService {
   static apiHost = 'http://35.203.149.35:9090/api/v2';
   //static apiHost = 'http://localhost:9090/api/v2';
 
+  static getEngineList(callback) {
+    $.ajax({
+      url: this.apiHost + '/engines',
+      type: "GET",
+      dataType: 'json',
+      contentType: 'application/json',
+      success: callback,
+      error: function (jqXHR, status, err) {
+        console.log("ajax error getting engine data.");
+      }
+    });
+  }
+
   static getTournament(tournamentId, callback) {
     $.ajax({
       url: this.apiHost + '/tournaments/' + tournamentId,
