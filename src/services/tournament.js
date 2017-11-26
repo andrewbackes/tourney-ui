@@ -18,6 +18,19 @@ export default class TournamentService {
     });
   }
 
+  static getEngineVersionList(name, callback) {
+    $.ajax({
+      url: this.apiHost + '/engines/' + name,
+      type: "GET",
+      dataType: 'json',
+      contentType: 'application/json',
+      success: callback,
+      error: function (jqXHR, status, err) {
+        console.log("ajax error getting engine version data.");
+      }
+    });
+  }
+
   static getTournament(tournamentId, callback) {
     $.ajax({
       url: this.apiHost + '/tournaments/' + tournamentId,
