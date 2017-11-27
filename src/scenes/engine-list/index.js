@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Panel from 'components/panel';
+
 import TournamentService from 'services/tournament';
 import EngineListTable from 'scenes/engine-list/EngineListTable';
 
@@ -16,7 +16,7 @@ export default class EngineList extends Component {
   componentDidMount() {
     this.timerID = setInterval(
       () => this.refreshList(),
-      1000
+      5000
     );
   }
 
@@ -38,8 +38,11 @@ export default class EngineList extends Component {
     return (
       <div>
         <div className="row">
-          <div className="col-xs-12 col-sm-12">
-            <Panel title="Engines" mode="default" content={<EngineListTable list={this.state.engines} history={this.props.history}/>}/>
+          <h2 style={{ 'marginBottom': '20px' }}>Engines</h2>
+        </div>
+        <div className="row">
+          <div className="col-xs-12">
+            <EngineListTable list={this.state.engines} history={this.props.history}/>
           </div>
         </div>
       </div>

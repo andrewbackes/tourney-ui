@@ -25,7 +25,7 @@ export default class Engine extends Component {
   componentDidMount() {
     this.timerID = setInterval(
       () => this.refreshList(),
-      1000
+      5000
     );
   }
 
