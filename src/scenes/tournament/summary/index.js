@@ -8,8 +8,8 @@ import TimeControlTable from 'scenes/tournament/summary/time-control';
 
 export default class Summary extends Component {
   render() {
-    const complete = this.props.gameList.filter( (game) => { return game.status === 'Complete'; } ).length;
-    const running = this.props.gameList.filter( (game) => { return game.status === 'Running'; } ).length;
+    const complete = this.props.gameList.filter( (game) => { return game.status === 'complete'; } ).length;
+    const running = this.props.gameList.filter( (game) => { return game.status === 'running'; } ).length;
     const complete_progress = 100 * complete / this.props.gameList.length;
     const running_progress = 100 * running / this.props.gameList.length;
     return (
