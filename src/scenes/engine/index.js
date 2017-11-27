@@ -7,7 +7,7 @@ import Linux from 'images/oses/linux.svg';
 import Windows from 'images/oses/windows.svg';
 
 const osImages = {
-  'mac': Mac,
+  'osx': Mac,
   'windows': Windows,
   'linux': Linux,
 }
