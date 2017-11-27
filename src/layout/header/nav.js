@@ -15,6 +15,24 @@ export default class NavBar extends Component {
           <ul className="nav navbar-nav">
             <li className={this.props.location.pathname.startsWith("/tournaments") ? 'active' : ''}><Link to='/tournaments'>Tournaments</Link></li>
             <li className={this.props.location.pathname.startsWith("/engines") ? 'active' : ''}><Link to='/engines'>Engines</Link></li>
+          </ul>
+          </div>
+        </div>
+      </nav>
+    ); 
+  }
+}
+
+/*
+      <nav className="navbar navbar-inverse">
+        <div className="container-fluid">
+          <div className="navbar-header">
+            <a className="navbar-brand" href=""><img alt="Tourney" src={Logo} style={{"filter": "invert(80%)", "height": "35px", "width": "35px", "top" : "-6px", "position": "relative"}}/></a>
+          </div>
+          <div className="collapse navbar-collapse" id="myNavbar">
+          <ul className="nav navbar-nav">
+            <li className={this.props.location.pathname.startsWith("/tournaments") ? 'active' : ''}><Link to='/tournaments'>Tournaments</Link></li>
+            <li className={this.props.location.pathname.startsWith("/engines") ? 'active' : ''}><Link to='/engines'>Engines</Link></li>
             <li className={this.props.location.pathname.startsWith("/books") ? 'active' : ''}><Link to='/books'>Books</Link></li>
             <li className={this.props.location.pathname.startsWith("/workers") ? 'active' : ''}><Link to='/workers'>Workers</Link></li>
           </ul>
@@ -25,6 +43,4 @@ export default class NavBar extends Component {
           </div>
         </div>
       </nav>
-    ); 
-  }
-}
+*/
