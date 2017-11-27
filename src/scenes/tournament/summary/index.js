@@ -14,7 +14,7 @@ export default class Summary extends Component {
     const running_progress = 100 * running / this.props.gameList.length;
     return (
       <div>
-        { this.props.tournament.status === 'Running' &&
+        { this.props.tournament.status === 'running' &&
         <div className="row">
           <div className="col-xs-12">
             <div className="progress">
